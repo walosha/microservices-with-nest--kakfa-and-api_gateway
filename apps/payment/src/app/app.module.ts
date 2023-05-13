@@ -1,9 +1,8 @@
-// apps/api-gateway/src/auth/auth.module.ts
-
 import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { AuthService } from './auth.service';
-import { AuthController } from './auth.controller';
+
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 @Module({
   imports: [
@@ -16,7 +15,6 @@ import { AuthController } from './auth.controller';
             clientId: 'auth',
             brokers: ['127.0.0.1:9092'],
           },
-          producerOnlyMode: true,
           consumer: {
             groupId: 'auth-consumer',
           },
@@ -24,7 +22,7 @@ import { AuthController } from './auth.controller';
       },
     ]),
   ],
-  providers: [AuthService],
-  controllers: [AuthController],
+  controllers: [AppController],
+  providers: [AppService],
 })
-export class AuthModule {}
+export class AppModule {}

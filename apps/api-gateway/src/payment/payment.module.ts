@@ -1,30 +1,27 @@
-// apps/api-gateway/src/auth/auth.module.ts
-
 import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { AuthService } from './auth.service';
-import { AuthController } from './auth.controller';
+import { PaymentController } from './payment.controller';
+import { PaymentService } from './payment.service';
 
 @Module({
   imports: [
     ClientsModule.register([
       {
-        name: 'AUTH_MICROSERVICE',
+        name: 'PAYMENT_MICROSERVICE',
         transport: Transport.KAFKA,
         options: {
           client: {
-            clientId: 'auth',
+            clientId: 'payment',
             brokers: ['127.0.0.1:9092'],
           },
-          producerOnlyMode: true,
           consumer: {
-            groupId: 'auth-consumer',
+            groupId: 'payment-consumer',
           },
         },
       },
     ]),
   ],
-  providers: [AuthService],
-  controllers: [AuthController],
+  providers: [PaymentService],
+  controllers: [PaymentController],
 })
-export class AuthModule {}
+export class PaymentModule {}
