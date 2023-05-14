@@ -12,7 +12,7 @@ import { PaymentService } from './payment.service';
         options: {
           client: {
             clientId: 'payment',
-            brokers: ['127.0.0.1:9092'],
+            brokers: ['127.0.0.1:29092'],
           },
           consumer: {
             groupId: 'payment-consumer',

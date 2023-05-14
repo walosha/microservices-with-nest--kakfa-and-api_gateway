@@ -14,7 +14,7 @@ import { AuthController } from './auth.controller';
         options: {
           client: {
             clientId: 'auth',
-            brokers: ['127.0.0.1:9092'],
+            brokers: ['127.0.0.1:29092'],
           },
           producerOnlyMode: true,
           consumer: {

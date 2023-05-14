@@ -13,7 +13,7 @@ import { AppService } from './app.service';
         options: {
           client: {
             clientId: 'auth',
-            brokers: ['127.0.0.1:9092'],
+            brokers: ['127.0.0.1:29092'],
           },
           consumer: {
             groupId: 'auth-consumer',
